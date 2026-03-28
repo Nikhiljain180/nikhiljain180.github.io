@@ -81,9 +81,9 @@ window.PROFILE = {
   ],
 
   projectsSectionTitle: "Projects & Writing",
-  projectsSectionLead: "Things I've built and ideas I'm exploring.",
+  projectsSectionLead: "Things I've shipped — plus long-form writing on production RAG.",
   projectsIntro:
-    "Open-source work spanning full-stack RAG, multi-agent systems, CSP-safe iframe embedding, translation APIs, voice AI, and LangGraph tool agents. The Enterprise RAG notebook series (AI-series) lives under Writing below.",
+    "Open-source work spanning full-stack RAG, multi-agent systems, CSP-safe iframe embedding, translation APIs, voice AI, and LangGraph tool agents. The Enterprise RAG series (essays + notebooks) is in the section below.",
 
   projects: [
     {
@@ -151,75 +151,161 @@ window.PROFILE = {
     },
   ],
 
+  /**
+   * Blog block uses the same layout as AI-series/docs/index.html (topics list + typography).
+   */
   writing: {
-    lead: "Ideas I'm exploring.",
-    statusLine: "Open source — notebook series",
-    items: [
-      {
-        title: "Enterprise RAG: What Breaks at Scale",
-        description:
-          "Companion to the AI-series repo: ten hands-on notebooks on failure modes outside the toy demo — chunking, hybrid retrieval, permissions, staleness, evaluation, and boundaries for real RAG apps.",
-        statusLine: "Live — 10 notebooks + README",
-        statusClass: "status-live",
-        parts: [
-          {
-            title: "AI-series on GitHub (README, notebooks, clone)",
-            url: "https://github.com/Nikhiljain180/AI-series?tab=readme-ov-file",
-            done: true,
+    sectionLabel: "Beyond the demo",
+    series: {
+      title: "Enterprise RAG: What Breaks at Scale",
+      kicker: "Enterprise RAG in production — long-form essays on retrieval, safety, and scale",
+      subHtml:
+        '<strong class="ai-series-strong-blog">Read the blog</strong> for long-form explanations (plain language, written like a serious article). <strong class="ai-series-strong-nb">Notebook export</strong> is the auto-generated HTML from Jupyter—useful for code cells. <strong>GitHub</strong> opens the <code>.ipynb</code> to run or edit locally.',
+      topics: [
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/01-not-all-vectors-equal.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/01b-embeddings-deep-dive.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/01c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/01-not-all-vectors-equal.html",
+            text: "1. Not all vectors are equal",
           },
-          {
-            title: "Part 1: Not all vectors are equal (embedding choice)",
-            url: "https://nikhiljain180.github.io/AI-series/01_not_all_vectors_are_equal_embedding_choice.html",
-            done: true,
+          teach:
+            "Chunking (fixed, semantic, hierarchical) and embedding models—explained for students and production engineers. Start with Part 1.",
+          exportUrl: "https://nikhiljain180.github.io/AI-series/01_not_all_vectors_are_equal_embedding_choice.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/01_not_all_vectors_are_equal_embedding_choice.ipynb",
+        },
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/02-right-chunk-wrong-context.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/02b-structural-chunking-deep-dive.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/02c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/02-right-chunk-wrong-context.html",
+            text: "2. The right chunk, wrong context",
           },
-          {
-            title: "Part 2: The right chunk, wrong context (structural chunking)",
-            url: "https://nikhiljain180.github.io/AI-series/02_right_chunk_wrong_context_structural_chunking.html",
-            done: true,
+          teach:
+            'Structural chunking, boundaries, and why "relevant" fragments still miss the exception clause. Start with Part 1; run the notebook for code.',
+          exportUrl: "https://nikhiljain180.github.io/AI-series/02_right_chunk_wrong_context_structural_chunking.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/02_right_chunk_wrong_context_structural_chunking.ipynb",
+        },
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/03-hybrid-search-bm25-vectors.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/03b-fusion-logging-and-regressions.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/03c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/03-hybrid-search-bm25-vectors.html",
+            text: "3. When dense search misses keywords",
           },
-          {
-            title: "Part 3: When dense search misses keywords (hybrid BM25)",
-            url: "https://nikhiljain180.github.io/AI-series/03_when_dense_search_misses_keywords_hybrid_bm25.html",
-            done: true,
+          teach: "Hybrid BM25 + vectors, fusion (RRF), and logging which leg saved the query. Start with Part 1.",
+          exportUrl: "https://nikhiljain180.github.io/AI-series/03_when_dense_search_misses_keywords_hybrid_bm25.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/03_when_dense_search_misses_keywords_hybrid_bm25.ipynb",
+        },
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/04-cross-encoder-reranking.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/04b-latency-cost-and-candidates.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/04c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/04-cross-encoder-reranking.html",
+            text: "4. Cross-encoder reranking",
           },
-          {
-            title: "Part 4: Cross-encoder rerank — cost vs quality",
-            url: "https://nikhiljain180.github.io/AI-series/04_cross_encoder_rerank_cost_vs_quality.html",
-            done: true,
+          teach: "Retrieve wide, rerank narrow: quality vs latency vs GPU memory. Start with Part 1.",
+          exportUrl: "https://nikhiljain180.github.io/AI-series/04_cross_encoder_rerank_cost_vs_quality.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/04_cross_encoder_rerank_cost_vs_quality.ipynb",
+        },
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/05-acl-at-query-time.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/05b-filters-audits-and-threats.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/05c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/05-acl-at-query-time.html",
+            text: "5. ACL at query time",
           },
-          {
-            title: "Part 5: ACL at query time — why RAG leaks or blocks wrong",
-            url: "https://nikhiljain180.github.io/AI-series/05_acl_at_query_time_why_rag_leaks_or_blocks_wrong.html",
-            done: true,
+          teach: "Enforce authorization in retrieval—filters, audits, cross-tenant tests. Start with Part 1.",
+          exportUrl: "https://nikhiljain180.github.io/AI-series/05_acl_at_query_time_why_rag_leaks_or_blocks_wrong.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/05_acl_at_query_time_why_rag_leaks_or_blocks_wrong.ipynb",
+        },
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/06-semantic-cache-invalidation.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/06b-metrics-and-two-tier-caching.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/06c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/06-semantic-cache-invalidation.html",
+            text: "6. Semantic cache & invalidation",
           },
-          {
-            title: "Part 6: Semantic cache — similarity, TTL, invalidation",
-            url: "https://nikhiljain180.github.io/AI-series/06_semantic_cache_similarity_ttl_and_invalidation.html",
-            done: true,
+          teach: "Similarity + version tags, TTL, false hits—cache without lying. Start with Part 1.",
+          exportUrl: "https://nikhiljain180.github.io/AI-series/06_semantic_cache_similarity_ttl_and_invalidation.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/06_semantic_cache_similarity_ttl_and_invalidation.ipynb",
+        },
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/07-stale-index-tombstones.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/07b-incremental-updates-and-ops.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/07c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/07-stale-index-tombstones.html",
+            text: "7. Stale index & tombstones",
           },
-          {
-            title: "Part 7: Stale index — incremental updates & tombstones",
-            url: "https://nikhiljain180.github.io/AI-series/07_stale_index_incremental_updates_and_tombstones.html",
-            done: true,
+          teach: "Incremental updates, stable IDs, deletes, ingestion lag. Start with Part 1.",
+          exportUrl: "https://nikhiljain180.github.io/AI-series/07_stale_index_incremental_updates_and_tombstones.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/07_stale_index_incremental_updates_and_tombstones.ipynb",
+        },
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/08-faithfulness-and-grounding.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/08b-layered-guards-and-rubrics.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/08c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/08-faithfulness-and-grounding.html",
+            text: "8. Grounded or confidently wrong",
           },
-          {
-            title: "Part 8: Grounded or confidently wrong (faithfulness checks)",
-            url: "https://nikhiljain180.github.io/AI-series/08_grounded_or_confidently_wrong_faithfulness_checks.html",
-            done: true,
+          teach: "Cheap faithfulness checks, abstention, and rubrics—before the LLM sounds sure. Start with Part 1.",
+          exportUrl: "https://nikhiljain180.github.io/AI-series/08_grounded_or_confidently_wrong_faithfulness_checks.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/08_grounded_or_confidently_wrong_faithfulness_checks.ipynb",
+        },
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/09-rag-evaluation-metrics.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/09b-golden-sets-and-slicing.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/09c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/09-rag-evaluation-metrics.html",
+            text: "9. RAG is not one metric",
           },
-          {
-            title: "Part 9: RAG is not one metric (retrieval & generation eval)",
-            url: "https://nikhiljain180.github.io/AI-series/09_rag_is_not_one_metric_retrieval_and_generation_eval.html",
-            done: true,
+          teach: "Recall@k, slicing, golden sets—retrieval vs generation eval. Start with Part 1.",
+          exportUrl: "https://nikhiljain180.github.io/AI-series/09_rag_is_not_one_metric_retrieval_and_generation_eval.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/09_rag_is_not_one_metric_retrieval_and_generation_eval.ipynb",
+        },
+        {
+          blogLinks: [
+            { href: "https://nikhiljain180.github.io/AI-series/articles/10-prompt-injection-pii.html", text: "Part 1" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/10b-layered-defenses-and-ux.html", text: "Part 2" },
+            { href: "https://nikhiljain180.github.io/AI-series/articles/10c-supplement-scenarios.html", text: "Part 3" },
+          ],
+          lesson: {
+            href: "https://nikhiljain180.github.io/AI-series/articles/10-prompt-injection-pii.html",
+            text: "10. Prompt injection & PII",
           },
-          {
-            title: "Part 10: Prompt injection & PII boundary for RAG apps",
-            url: "https://nikhiljain180.github.io/AI-series/10_prompt_injection_and_pii_boundary_for_rag_apps.html",
-            done: true,
-          },
-        ],
-      },
-    ],
+          teach: "Untrusted chunks, layered defenses, PII boundaries. Start with Part 1.",
+          exportUrl: "https://nikhiljain180.github.io/AI-series/10_prompt_injection_and_pii_boundary_for_rag_apps.html",
+          githubUrl: "https://github.com/Nikhiljain180/AI-series/blob/main/10_prompt_injection_and_pii_boundary_for_rag_apps.ipynb",
+        },
+      ],
+    },
   },
 
   contact: {

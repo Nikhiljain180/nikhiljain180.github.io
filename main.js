@@ -209,56 +209,82 @@
       .join("");
   }
 
-  setText("writing-section-title", P.writing.lead);
+  if (P.writing.sectionLabel) setText("writing-label", P.writing.sectionLabel);
 
+  var series = P.writing.series;
   var wb = document.getElementById("writing-items");
-  if (wb) {
-    wb.innerHTML = P.writing.items
-      .map(function (item, idx) {
-        var statusLine = item.statusLine != null ? item.statusLine : P.writing.statusLine;
-        var stClass = item.statusClass || "status-live";
-        var parts = (item.parts || [])
-          .map(function (pt) {
-            if (pt.url) {
-              var cls = "topic-link" + (pt.done ? " published" : "");
+  if (wb && series && series.topics && series.topics.length) {
+    var topicsHtml = series.topics
+      .map(function (t) {
+        var row =
+          '<div class="blog-row">Blog (~10k words): ' +
+          t.blogLinks
+            .map(function (bl, i) {
               return (
+                (i ? " · " : "") +
                 '<a href="' +
-                esc(pt.url) +
-                '" class="' +
-                cls +
+                esc(bl.href) +
                 '" target="_blank" rel="noopener noreferrer">' +
-                esc(pt.title) +
+                esc(bl.text) +
                 "</a>"
               );
-            }
-            return "<span>" + esc(pt.title) + "</span>";
-          })
-          .join("");
-        var margin = idx > 0 ? ' style="margin-top: 1.5rem"' : "";
+            })
+            .join("") +
+          "</div>";
         return (
-          '<div class="writing-preview"' +
-          margin +
-          ">" +
-          '<div class="writing-card-header">' +
-          '<div class="project-status ' +
-          esc(stClass) +
-          '"><span class="status-dot"></span> ' +
-          esc(statusLine) +
-          "</div>" +
-          "<h3>" +
-          esc(item.title) +
-          "</h3>" +
-          "<p>" +
-          esc(item.description) +
+          "<li>" +
+          row +
+          '<a class="lesson" href="' +
+          esc(t.lesson.href) +
+          '" target="_blank" rel="noopener noreferrer">' +
+          esc(t.lesson.text) +
+          "</a>" +
+          '<p class="teach">' +
+          esc(t.teach) +
           "</p>" +
-          "</div>" +
-          '<div class="writing-topics">' +
-          parts +
-          "</div>" +
-          "</div>"
+          '<a class="export" href="' +
+          esc(t.exportUrl) +
+          '" target="_blank" rel="noopener noreferrer">Notebook HTML export →</a>' +
+          '<a class="github" href="' +
+          esc(t.githubUrl) +
+          '" target="_blank" rel="noopener noreferrer">Run on GitHub →</a>' +
+          "</li>"
         );
       })
       .join("");
+
+    var footerName = (P.footer && P.footer.name) || "Nikhil Jain";
+    var liUrl =
+      P.contact.linkedin && P.contact.linkedin.url
+        ? P.contact.linkedin.url
+        : "https://www.linkedin.com/in/nikhiljain180/";
+
+    wb.innerHTML =
+      '<div class="ai-series-docs">' +
+      '<div class="ai-series-docs-inner">' +
+      '<h2 class="ai-series-docs-title">' +
+      esc(series.title) +
+      "</h2>" +
+      '<p class="kicker">' +
+      esc(series.kicker) +
+      "</p>" +
+      '<p class="sub">' +
+      series.subHtml +
+      "</p>" +
+      '<ol class="topics">' +
+      topicsHtml +
+      "</ol>" +
+      '<footer class="ai-series-docs-footer"><p>' +
+      esc(footerName) +
+      ' — <a href="' +
+      esc(liUrl) +
+      '" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://github.com/Nikhiljain180/AI-series" target="_blank" rel="noopener noreferrer">Repository</a></p></footer>' +
+      "</div></div>";
+
+    var wsec = document.getElementById("writing-section");
+    if (wsec) wsec.classList.add("has-ai-series-docs");
+  } else if (wb) {
+    wb.innerHTML = "";
   }
 
   setText("contact-title", P.contact.title);

@@ -473,58 +473,136 @@
         .project-links a:hover { color: var(--accent); }
         .project-links a svg { width: 15px; height: 15px; }
 
-        /* ─── WRITING ─── */
-        .writing-preview {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+        /* ─── BLOG (AI-series /docs/index.html layout) ─── */
+        #writing-section.has-ai-series-docs {
+            margin-top: 3rem;
+        }
+        #writing-section.has-ai-series-docs .section-label {
+            margin-bottom: 1.25rem;
+        }
+        .ai-series-docs {
+            --ai-bg: #0f172a;
+            --ai-text: #f1f5f9;
+            --ai-muted: #94a3b8;
+            --ai-accent: #38bdf8;
+            --ai-hover: #7dd3fc;
+            --ai-blog: #a7f3d0;
+            --ai-border: #334155;
+            background: var(--ai-bg);
+            color: var(--ai-text);
             border-radius: 14px;
+            border: 1px solid var(--ai-border);
             overflow: hidden;
-            transition: all 0.3s ease;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
         }
-        .writing-preview:hover {
-            border-color: rgba(79, 195, 247, 0.3);
+        .ai-series-docs-inner {
+            margin: 0;
+            padding: 2.25rem 1.35rem 2.5rem;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.55;
+            text-align: left;
         }
-        .writing-card-header {
-            padding: 2rem 2.5rem 1.5rem;
-        }
-        .writing-card-header h3 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
+        .ai-series-docs-title {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+            margin: 0 0 0.35rem;
+            color: var(--ai-text);
         }
-        .writing-card-header p {
-            color: var(--text-muted);
+        .ai-series-docs .kicker {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--ai-muted);
+            margin: 0 0 1.25rem;
+            line-height: 1.5;
+        }
+        .ai-series-docs .sub {
+            color: var(--ai-muted);
             font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 0;
+            margin: 0 0 2rem;
         }
-        .writing-card-header .project-status {
-            margin-bottom: 0.75rem;
+        .ai-series-docs .sub code {
+            font-size: 0.88em;
+            background: rgba(148, 163, 184, 0.15);
+            padding: 0.12em 0.35em;
+            border-radius: 4px;
+            color: #e2e8f0;
         }
-        .writing-topics {
-            display: flex;
-            flex-direction: column;
-            border-top: 1px solid var(--border);
+        .ai-series-strong-blog {
+            color: var(--ai-blog);
         }
-        .writing-topics span,
-        .writing-topics a.topic-link {
-            padding: 12px 2.5rem;
-            border-bottom: 1px solid var(--border);
+        .ai-series-strong-nb {
+            color: var(--ai-accent);
+        }
+        .ai-series-docs ol.topics {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .ai-series-docs ol.topics li {
+            margin: 0;
+            padding-bottom: 1.35rem;
+            border-bottom: 1px solid var(--ai-border);
+        }
+        .ai-series-docs ol.topics li:first-child {
+            border-top: 1px solid var(--ai-border);
+            padding-top: 0.25rem;
+        }
+        .ai-series-docs .blog-row {
+            font-size: 0.88rem;
+            margin: 0.5rem 0 0.35rem;
+            line-height: 1.6;
+        }
+        .ai-series-docs .blog-row a {
+            color: var(--ai-blog);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .ai-series-docs .blog-row a:hover {
+            text-decoration: underline;
+        }
+        .ai-series-docs ol.topics a.lesson {
+            display: inline-block;
+            margin-top: 0.85rem;
+            color: var(--ai-accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        .ai-series-docs ol.topics a.lesson:hover {
+            color: var(--ai-hover);
+            text-decoration: underline;
+        }
+        .ai-series-docs ol.topics .teach {
+            margin: 0.5rem 0 0.65rem;
             font-size: 0.9rem;
-            font-weight: 500;
-            display: block;
-            transition: background 0.2s ease;
+            color: #cbd5e1;
         }
-        .writing-topics span {
-            color: var(--text-muted);
+        .ai-series-docs ol.topics a.export,
+        .ai-series-docs ol.topics a.github {
+            font-size: 0.85rem;
+            color: var(--ai-muted);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            margin-right: 0.75rem;
         }
-        .writing-topics a.topic-link:hover {
-            background: var(--bg-card-hover);
+        .ai-series-docs ol.topics a.export:hover,
+        .ai-series-docs ol.topics a.github:hover {
+            color: var(--ai-accent);
         }
-        .writing-topics span:last-child,
-        .writing-topics a.topic-link:last-child {
-            border-bottom: none;
+        .ai-series-docs-footer {
+            margin-top: 2.5rem;
+            font-size: 0.85rem;
+            color: var(--ai-muted);
+        }
+        .ai-series-docs-footer a {
+            color: var(--ai-accent);
+            text-decoration: none;
+        }
+        .ai-series-docs-footer a:hover {
+            text-decoration: underline;
         }
 
         /* ─── CONTACT ─── */
@@ -667,7 +745,7 @@
 
         /* ─── SMOOTH THEME TRANSITION ─── */
         body, nav, .project-card, .highlight-card, .contact-link,
-        .hero-photo, .btn, .footer-socials a, .tech-tag, .writing-preview {
+        .hero-photo, .btn, .footer-socials a, .tech-tag, .ai-series-docs {
             transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
@@ -706,17 +784,6 @@
             section { padding: 4rem 1.5rem; }
             .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
         }
-        a.topic-link {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        a.topic-link:hover {
-            text-decoration: none;
-        }
-        a.topic-link.published {
-            color: var(--green);
-        }
-
         .nav-actions {
             display: flex;
             align-items: center;
