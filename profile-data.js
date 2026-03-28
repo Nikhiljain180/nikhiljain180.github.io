@@ -155,7 +155,7 @@ window.PROFILE = {
    * Blog block uses the same layout as AI-series/docs/index.html (topics list + typography).
    */
   writing: {
-    sectionLabel: "Beyond the demo",
+    sectionLabel: "My popular Articles",
     series: {
       title: "Enterprise RAG: What Breaks at Scale",
       kicker: "Enterprise RAG in production — long-form essays on retrieval, safety, and scale",
@@ -306,6 +306,28 @@ window.PROFILE = {
         },
       ],
     },
+  },
+
+  /**
+   * LinkedIn / social long-form posts (extend `posts` as you publish more).
+   */
+  socialPosts: {
+    sectionLabel: "My Social Network post",
+    lead: "LinkedIn articles — I’ll list new posts here as I publish.",
+    posts: [
+      {
+        title:
+          'Why Your RAG Pipeline is Failing: 5 Precision Strategies to Move Beyond "Naive" AI',
+        url: "https://www.linkedin.com/pulse/why-your-rag-pipeline-failing-5-precision-strategies-move-nikhil-jain-negvc/",
+        image: "downloads/post-1-rag-evolution-infographic.png",
+        imageAlt:
+          "Infographic: Evolution of RAG — strategic chunking, hybrid search, reranking, and hierarchical retrieval with benchmarks",
+      },
+      {
+        title: "Access control layer in RAG application",
+        comingSoon: true,
+      },
+    ],
   },
 
   contact: {

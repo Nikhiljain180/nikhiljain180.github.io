@@ -278,6 +278,76 @@
     wb.innerHTML = "";
   }
 
+  var social = P.socialPosts;
+  var spl = document.getElementById("social-posts-list");
+  if (spl && social && social.posts && social.posts.length) {
+    if (social.sectionLabel) setText("social-posts-label", social.sectionLabel);
+    var spld = document.getElementById("social-posts-lead");
+    if (spld) {
+      if (social.lead) {
+        spld.textContent = social.lead;
+        spld.hidden = false;
+      } else {
+        spld.hidden = true;
+      }
+    }
+    spl.innerHTML = social.posts
+      .map(function (post, i) {
+        var n = i + 1;
+        if (post.comingSoon) {
+          return (
+            '<div class="social-post-row social-post-row--soon">' +
+            '<span class="social-post-num">' +
+            esc(String(n)) +
+            "</span>" +
+            '<div class="social-post-body">' +
+            "<p class=\"social-post-title\">" +
+            esc(post.title) +
+            '</p><span class="social-post-soon">(coming soon)</span>' +
+            "</div></div>"
+          );
+        }
+        var imgBlock = "";
+        if (post.image) {
+          imgBlock =
+            '<div class="social-post-media">' +
+            '<img src="' +
+            esc(post.image) +
+            '" alt="' +
+            esc(post.imageAlt || post.title) +
+            '" class="social-post-image" loading="lazy" decoding="async" />' +
+            "</div>";
+        }
+        return (
+          '<a class="social-post-card social-post-row social-post-row--link' +
+          (post.image ? " social-post-card--with-image" : "") +
+          '" href="' +
+          esc(post.url) +
+          '" target="_blank" rel="noopener noreferrer">' +
+          imgBlock +
+          '<div class="social-post-card-main">' +
+          '<span class="social-post-num">' +
+          esc(String(n)) +
+          "</span>" +
+          '<div class="social-post-body">' +
+          "<p class=\"social-post-title\">" +
+          esc(post.title) +
+          '</p><span class="social-post-cta">Read on LinkedIn →</span>' +
+          "</div></div></a>"
+        );
+      })
+      .join("");
+  } else if (spl) {
+    spl.innerHTML = "";
+    var spld2 = document.getElementById("social-posts-lead");
+    if (spld2) spld2.hidden = true;
+  }
+
+  var ssec = document.getElementById("social-posts-section");
+  if (ssec) {
+    ssec.hidden = !(social && social.posts && social.posts.length);
+  }
+
   setText("contact-title", P.contact.title);
   setText("contact-blurb", P.contact.blurb);
 
