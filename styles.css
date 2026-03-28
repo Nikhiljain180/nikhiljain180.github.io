@@ -592,18 +592,6 @@
         .ai-series-docs ol.topics a.github:hover {
             color: var(--ai-accent);
         }
-        .ai-series-docs-footer {
-            margin-top: 2.5rem;
-            font-size: 0.85rem;
-            color: var(--ai-muted);
-        }
-        .ai-series-docs-footer a {
-            color: var(--ai-accent);
-            text-decoration: none;
-        }
-        .ai-series-docs-footer a:hover {
-            text-decoration: underline;
-        }
 
         /* ─── CONTACT ─── */
         #contact {

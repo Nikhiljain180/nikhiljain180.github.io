@@ -315,6 +315,8 @@ window.PROFILE = {
     resumeUrl: "nikhil-resume-ai.pdf",
     resumeLabel: "Download Resume",
     email: "nikhiljain180@gmail.com",
+    phone: "+91-7838493846",
+    phoneTel: "tel:+917838493846",
     linkedin: {
       label: "LinkedIn",
       value: "Nikhil Jain",
