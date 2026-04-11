@@ -93,7 +93,6 @@ window.PROFILE = {
       tags: ["Node.js", "Express", "React", "CSP", "Security"],
       status: "live",
       icon: "shield",
-      badge: "Live — 1 Star",
       links: [{ label: "GitHub", url: "https://github.com/Nikhiljain180/Iframe-Proxy---CSP-bypass-solution" }],
     },
     {
@@ -113,7 +112,6 @@ window.PROFILE = {
       tags: ["FastAPI", "React", "RAG", "OpenAI", "Qdrant", "PostgreSQL", "Celery", "Docker"],
       status: "live",
       icon: "search",
-      badge: "Live — 1 Star",
       links: [{ label: "GitHub", url: "https://github.com/Nikhiljain180/DocuMind-AI" }],
     },
     {
